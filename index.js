@@ -23,7 +23,7 @@ class SortedList {
 
   max() {
     if (this.items.length !== 0) {
-      return Mathmax(this.items);
+      return Math.max(...this.items);
     } else {
       throw new Error('EmptySortedList');
     }
@@ -31,7 +31,7 @@ class SortedList {
 
   min() {
     if (this.items.length !== 0) {
-      return Mathmin(this.items);
+      return Math.min(...this.items);
     } else {
       throw new Error('EmptySortedList');
     }
@@ -39,11 +39,7 @@ class SortedList {
 
   sum() {
     if (this.items.length !== 0) {
-      let num = 0;
-      for (let i in this.items) {
-        num += i;
-        return num;
-      }
+      this.items.reduce((a, b) => a + b, 0);
     } else {
       return 0;
     }
