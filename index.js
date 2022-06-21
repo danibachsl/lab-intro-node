@@ -39,14 +39,18 @@ class SortedList {
 
   sum() {
     if (this.items.length !== 0) {
-      this.items.reduce((a, b) => a + b, 0);
+      return this.items.reduce((a, b) => a + b, 0);
     } else {
       return 0;
     }
   }
 
   avg() {
-    return (this.sum(this.items)) / this.items.length;
+    if (this.items.length !== 0) {
+      return (this.sum(this.items)) / this.items.length;
+    } else {
+      throw new Error('EmptySortedList');
+    }
   }
 }
 
